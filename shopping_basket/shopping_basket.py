@@ -4,3 +4,10 @@ class Basket:
         self.discount = 0.0
         self.total = 0.0
         self.items = []
+
+    def add_item(self, name: str, price, quantity):
+        if type(name) == str:
+            self.items.append(name)
+        else:
+            raise TypeError
+
