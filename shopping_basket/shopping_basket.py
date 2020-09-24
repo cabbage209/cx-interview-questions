@@ -17,7 +17,7 @@ class Basket:
                     print(self.sub_total)
             else:
                 raise TypeError
-        
+
 
 class Item:
     def __init__(self, name, price, quantity):
@@ -28,4 +28,15 @@ class Item:
 
 class Pricer:
     def __init__(self, obj):
-        return
+        crab_num = obj.items.count("crab")
+        try:
+            # crab_num divis by 4 without remiander
+            y = crab_num // 4
+            obj.discount = 1.02 * y
+        except y == 0:
+            print("x not divisable by 4")
+        obj.total = obj.sub_total - obj.discount
+        print(
+            f"""(Baskets subtotal = {obj.sub_total}, Baskets discount = {obj.discount},
+            Baskets total = {obj.total} )"""
+        )
