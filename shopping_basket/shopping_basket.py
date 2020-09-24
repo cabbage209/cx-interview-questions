@@ -29,19 +29,27 @@ class Item:
 
 class Pricer:
     def __init__(self, obj):
+        # crab offers
         crab_num = obj.items.count("crab")
         try:
             # crab_num divis by 4 without remiander
             y = crab_num // 4
-            obj.discount += 1.02 * y
+            crab_dis = 1.02 * y
         except y == 0:
             print("crab_num not divisable by 4")
+        # fish offers
+        fish_num = obj.items.count("fish")
+        y = fish_num * 2.10
+        # find 20%
+        fish_dis = y * 0.2
         try:
+            obj.discount = fish_dis + crab_dis
             obj.total = obj.sub_total - obj.discount
         except obj.total < 0.0:
             obj.total = 0.0
         print(
-            f"""(Baskets subtotal = {obj.sub_total}, Baskets discount = {obj.discount},
+            f"""(Baskets subtotal = {round(obj.sub_total)},
+            Baskets discount = {round(obj.discount)},
             Baskets total = {round(obj.total, 2)} )"""
         )
 

@@ -70,7 +70,7 @@ def test_default_pricer(full_basket):
     Pricer(full_basket)
     assert full_basket.sub_total == 12.59
     # create offer buy 3 get 1 free on crab item
-    assert full_basket.total == 11.57
+    assert full_basket.total == 10.73
 
 
 @pytest.fixture
